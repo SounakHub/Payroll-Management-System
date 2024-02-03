@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To WEDOYOURPAY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <style>
+        body {
+            background-image: url('payroll.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .bg-stpl-custom {
+            background: linear-gradient(45deg, #b71c1c, #ff8a65) !important;
+        }
+
+        .card {
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.356);
+            background: #f0f8ff00;
+        }
+
+        .card-body {
+            background: #ffffffcc !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-stpl-custom navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html">PAYROLL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fa fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#employee" role="button" data-bs-toggle="dropdown"><i
+                                class="fa fa-user"></i> Employee</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="addEmployee.html">Add Employee</a></li>
+                            <li><a class="dropdown-item" href="editEmployee.html">Edit Employee</a></li>
+                            <li><a class="dropdown-item" href="#">View Employee</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i
+                                class="fa fa-flash"></i> Data</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="banking.html">Bank</a></li>
+                            <li><a class="dropdown-item" href="earning.html">Earning</a></li>
+                            <li><a class="dropdown-item" href="deduction.html">Deductions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i
+                                class="fa fa-file-text"></i> Checks</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Select/Deselect Earnings & Deductions</a></li>
+                            <li><a class="dropdown-item" href="#">Copy permanent to tempopary</a></li>
+                            <li><a class="dropdown-item" href="#">Check Preparation</a></li>
+                            <li><a class="dropdown-item" href="#">Check Registers</a></li>
+                            <li><a class="dropdown-item" href="#">Deposit Cheque to bank</a></li>
+                            <li><a class="dropdown-item" href="#">Update Payroll cycle</a></li>
+                            <li><a class="dropdown-item" href="#">Reset Payroll Cycle</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i
+                                class="fa fa-file"></i> Report</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Quarterly 941</a></li>
+                            <li><a class="dropdown-item" href="#">Register Summery</a></li>
+                            <li><a class="dropdown-item" href="#">Annual W2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="mt-5">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="card border-0 mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Client/Company Access</h5>
+                                </div>
+                                <div class="col-6">
+                                    <div class="w-100 text-end">
+                                        <button class="btn btn-success btn-sm bg-gradient" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop">Add New</button>
+                                    </div>
+
+                                    <!-- Entry Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-stpl-custom bg-gradient py-1 text-light">
+                                                    <h6 class="modal-title" id="staticBackdropLabel">Add New Bank</h6>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label>Name</label>
+                                                    <input type="text" class="form-control form-control-sm mb-2"
+                                                        placeholder="Name">
+
+                                                    <label>Marital Status</label>
+                                                    <input type="text" class="form-control form-control-sm mb-2"
+                                                        placeholder="Marital Status">
+
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-control form-control-sm mb-2"
+                                                        placeholder="Address">
+
+                                                    <label>Bank</label>
+                                                    <input type="text" class="form-control form-control-sm mb-2"
+                                                        placeholder="Bank">
+
+                                                    <label>Swift No</label>
+                                                    <input type="text" class="form-control form-control-sm mb-2"
+                                                        placeholder="Swift No">
+
+                                                    <label>Account</label>
+                                                    <input type="number" class="form-control form-control-sm mb-2"
+                                                        placeholder="Account">
+
+                                                    <label>PAN</label>
+                                                    <input type="" class="form-control form-control-sm mb-2"
+                                                        placeholder="PAN">
+
+
+                                                    <button class="btn btn-sm btn-danger w-100">Add Bank</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <hr>
+                                <table id="example" class="table table-sm align-center table-hover ">
+                                    <thead>
+                                        <tr>
+                                            <th>SERIAL NUMBER</th>
+                                            <th>CLIENT/COMPANY NAME</th>
+                                            <th>DASHBOARD</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Softmaker</td>
+                                            <td>
+                                                <button class="btn btn-success bg-gradient btn-sm"
+                                                    data-bs-toggle="modal" data-bs-target="#edit1">Go To
+                                                    Dashboard</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Softmaker</td>
+                                            <td>
+                                                <button class="btn btn-success bg-gradient btn-sm"
+                                                    data-bs-toggle="modal" data-bs-target="#edit1">Go To
+                                                    Dashboard</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Softmaker</td>
+                                            <td>
+                                                <button class="btn btn-success bg-gradient btn-sm"
+                                                    data-bs-toggle="modal" data-bs-target="#edit1">Go To
+                                                    Dashboard</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="text-light bg-stpl-custom d-flex bd-highlight mt-3 px-3 fixed-bottom">
+        <div class="me-auto p-2 bd-highlight">Sigmabit &copy; 2023</div>
+        <div class="p-2 bd-highlight">Implemented By <a href="http://softmaker.co.in/"
+                class="text-light text-decoration-none">Softmaker</div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+</body>
+
+</html>
